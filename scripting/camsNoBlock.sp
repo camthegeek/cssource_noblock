@@ -1,5 +1,5 @@
 /**
- * NoBlock Plugin
+ * No Block Plugin
  * Allows players to pass through each other and optionally disables collision for nades.
  */
 
@@ -9,8 +9,8 @@
 
 #pragma newdecls required
 
-#define PLUGIN_NAME "CTG-NoBlock"
-#define PLUGIN_VERSION "1.0.3"
+#define PLUGIN_NAME "No Block"
+#define PLUGIN_VERSION "1.0.4"
 
 #define COLLISION_GROUP_NONE 0
 #define COLLISION_GROUP_PLAYER 5
@@ -37,6 +37,8 @@ public void OnPluginStart()
     
     HookConVarChange(g_CvarNoBlock, OnNoBlockChanged);
     HookConVarChange(g_CvarNoBlockNades, OnNoBlockNadesChanged);
+    
+    LogMessage("Plugin %s v%s loaded", PLUGIN_NAME, PLUGIN_VERSION);
     
     // Hook all existing clients
     for (int i = 1; i <= MaxClients; i++)
